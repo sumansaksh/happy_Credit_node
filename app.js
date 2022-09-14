@@ -4,7 +4,9 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const cors = require("cors");
 const app = express();
+
 const dotenv = require("dotenv");
+const PORT = process.env.PORT;
 dotenv.config({ path: "./config.env" });
 app.use(express.json());
 app.use(bodyparser.json());
@@ -31,6 +33,6 @@ app.get("/", async (req, res) => {
   await res.send("working fine");
 });
 
-app.listen(8080, () => {
-  console.log(`server is running on port 8080`);
+app.listen(PORT, () => {
+  console.log(`server is running on port ${PORT}`);
 });
