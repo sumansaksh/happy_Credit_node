@@ -1,10 +1,14 @@
 // mongodb+srv://suman:<password>@cluster0.x26zycb.mongodb.net/?retryWrites=true&w=majority
 const mongoose = require("mongoose");
 const express = require("express");
+const bodyparser = require("body-parser");
+const cors = require("cors");
 const app = express();
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 app.use(express.json());
+app.use(bodyparser.json());
+app.use(cors());
 const db = process.env.DATABASE;
 
 const Post = require("./schema/PostSchema");
